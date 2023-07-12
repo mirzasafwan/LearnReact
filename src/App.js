@@ -1,5 +1,5 @@
 import React from "react";
-import UseReducer from "./Hooks/userReducer";
+import UseReducer from "./Hooks/useReducer";
 
 function App() {
   return (
