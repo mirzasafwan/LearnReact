@@ -1,12 +1,13 @@
 import React from "react";
-import UseReducer from "./Hooks/useReducer";
+import UseEffect from "./Hooks/useEffect";
 
 function App() {
   return (
     <div>
       <h1>This is React App</h1>
       {/* <UseState /> */}
-      <UseReducer />
+      {/* <UseReducer /> */}
+      <UseEffect />
     </div>
   );
 }
