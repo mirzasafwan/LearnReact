@@ -34,3 +34,27 @@ export const UseState = () => {
     </div>
   );
 };
+
+// import React from "react";
+
+// const UseState = () => {
+//   const array = [1, 2, 3];
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//   };
+//   return (
+//     <div>
+//       <form onSubmit={handleSubmit}>
+//         <input type="text" name="" id="" />
+//         <button>Submit</button>
+//       </form>
+//       {
+//         (array.map = (number) => {
+//           return <button>{number}</button>;
+//         })
+//       }
+//     </div>
+//   );
+// };
+
+// export default UseState;
