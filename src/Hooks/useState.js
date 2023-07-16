@@ -51,68 +51,100 @@
 //   );
 // };
 
-import React from "react";
+// import React from "react";
 
-const UseState = () => {
-  const array = [1, 2, 3];
-  // const [data, setData] = useState("Initial");
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   setData(e.target.value);
-  //   console.log("Submit", data);
-  // }
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log("Submit", new FormData(e.target).get("name"));
+// const UseState = () => {
+//   const array = [1, 2, 3];
+//   // const [data, setData] = useState("Initial");
+//   // function handleSubmit(e) {
+//   //   e.preventDefault();
+//   //   setData(e.target.value);
+//   //   console.log("Submit", data);
+//   // }
+//   function handleSubmit(e) {
+//     e.preventDefault();
+//     console.log("Submit", new FormData(e.target).get("name"));
+//   }
+
+//   const double = (number) => {
+//     return () => {
+//       console.log("Double", number * 2);
+//     };
+//   };
+//   function p(number) {
+//     console.log("Print", number);
+//   }
+//   return (
+//     <div>
+//       <form
+//         onSubmit={(e) => {
+//           handleSubmit(e);
+//         }}
+//       >
+//         {/* <h1>{data}</h1> */}
+//         <input
+//           type="text"
+//           name="name"
+//           id=""
+//           defaultValue="Initial"
+//           // onChange={(e) => handleSubmit(e)}
+//         />
+//         <button>Click Me</button>
+//       </form>
+//       {array.map((number) => {
+//         return (
+//           <button
+//             key={number}
+//             onClick={() => {
+//               p(number);
+//             }}
+//           >
+//             Print {number}
+//           </button>
+//         );
+//       })}
+//       <br />
+//       {array.map((number) => {
+//         return (
+//           <button key={number} onClick={double(number)}>
+//             Double {number}
+//           </button>
+//         );
+//       })}
+//     </div>
+//   );
+// };
+
+// export default UseState;
+
+import React, { useState } from "react";
+
+function UseState() {
+  const [state, setState] = useState([1, 2, 3]);
+  function addToStart(number) {
+    setState((currentVal) => {
+      return [currentVal, number];
+    });
   }
-
-  const double = (number) => {
-    return () => {
-      console.log("Double", number * 2);
-    };
-  };
-  function p(number) {
-    console.log("Print", number);
+  function addToEnd(number) {
+    setState((currentVal) => {
+      return [number, currentVal];
+    });
   }
   return (
     <div>
-      <form
-        onSubmit={(e) => {
-          handleSubmit(e);
+      {state.join(",")}
+
+      <button
+        onClick={() => {
+          addToStart(0);
+          addToEnd(0);
         }}
       >
-        {/* <h1>{data}</h1> */}
-        <input
-          type="text"
-          name="name"
-          id=""
-          defaultValue="Initial"
-          // onChange={(e) => handleSubmit(e)}
-        />
-        <button>Click Me</button>
-      </form>
-      {array.map((number) => {
-        return (
-          <button
-            key={number}
-            onClick={() => {
-              p(number);
-            }}
-          >
-            Print {number}
-          </button>
-        );
-      })}
-      <br />
-      {array.map((number) => {
-        return (
-          <button key={number} onClick={double(number)}>
-            Double {number}
-          </button>
-        );
-      })}
+        Add to Start/End
+      </button>
     </div>
   );
-};
+}
 
 export default UseState;
